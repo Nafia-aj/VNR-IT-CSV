@@ -44,7 +44,7 @@ function sendEmails(event) {
                         };
 
                         emailjs.send(serviceID, templateID, params).then((res) => {
-                            alert("Message sent successfully to ");
+                            alert("Message sent successfully  ");
                             document.getElementById('subject').value = '';
                             document.getElementById('content').value = '';
                             document.getElementById('csvFile').value = '';
