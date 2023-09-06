@@ -31,7 +31,7 @@ function sendEmails(event) {
                 }
                 console.log("Parsed CSV data:", results.data);
                 console.log("Errors:", results.errors);
-                
+
                 const serviceID = "service_th478dp";
                 const templateID = "template_mdo1sji";
 
@@ -44,16 +44,15 @@ function sendEmails(event) {
                         };
 
                         emailjs.send(serviceID, templateID, params).then((res) => {
-                            console.log("Message sent successfully to " + row.email);
+                            alert("Message sent successfully to ");
+                            document.getElementById('subject').value = '';
+                            document.getElementById('content').value = '';
+                            document.getElementById('csvFile').value = '';
                         }).catch((err) => {
-                            console.error(`Error sending message to ${row.email}:`, err);
+                            alert("Error sending message "+err);
                         });
                     }
                 });
-
-                document.getElementById('subject').value = '';
-                document.getElementById('content').value = '';
-                document.getElementById('csvFile').value = ''; // Clear file input
             }
         });
     };
